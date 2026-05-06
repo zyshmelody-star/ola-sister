@@ -1,0 +1,105 @@
+{{ define "main" }}
+{{ partial "header.html" . }}
+
+<div class="container product-detail-page">
+
+  <!-- 返回按钮 -->
+  <div class="back-bar">
+    <a href="/products/" class="btn-back" id="backBtn">‹ 返回商品列表</a>
+  </div>
+
+  <!-- 主内容区 -->
+  <div class="detail-layout">
+
+    <!-- 左：轮播图 -->
+    <div class="detail-carousel-wrap">
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          {{ range .Params.detail_images }}
+          <div class="carousel-slide">
+            <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy" />
+          </div>
+          {{ end }}
+          {{ if not .Params.detail_images }}
+          <div class="carousel-slide">
+            <img src="{{ .Params.image | default "/images/placeholder.svg" }}" alt="{{ .Title }}" />
+          </div>
+          {{ end }}
+        </div>
+        <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="上一张">&#8249;</button>
+        <button class="carousel-btn carousel-next" id="carouselNext" aria-label="下一张">&#8250;</button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <!-- 右：商品信息 -->
+    <div class="detail-info">
+      <span class="detail-category-badge">{{ .Params.category }}</span>
+      <h1 class="detail-title">{{ .Title }}</h1>
+      <p class="detail-price">¥{{ printf "%.2f" .Params.price }}</p>
+      <p class="detail-short-desc">{{ .Params.description }}</p>
+
+      {{ if .Params.highlights }}
+      <div class="detail-highlights">
+        {{ range .Params.highlights }}
+        <p>{{ . }}</p>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      <div class="detail-buy-hint">
+        <p>👇 扫码前往店铺购买</p>
+      </div>
+
+      {{ partial "purchase-channels.html" . }}
+    </div>
+
+  </div><!-- /detail-layout -->
+
+  <!-- 图文详情 -->
+  {{ if .Params.detail_content }}
+  <section class="detail-content-section">
+    <h2 class="section-title">商品详情</h2>
+    <div class="detail-content-body">
+      {{ range .Params.detail_content }}
+        {{ if eq .type "text" }}
+        <p class="detail-text-block">{{ .content }}</p>
+        {{ else if eq .type "image" }}
+        <div class="detail-image-block">
+          <img src="{{ .url }}" alt="商品详情图" loading="lazy" />
+        </div>
+        {{ else if eq .type "heading" }}
+        <h3 class="detail-heading-block">{{ .content }}</h3>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+  {{ else if .Content }}
+  <section class="detail-content-section">
+    <h2 class="section-title">商品详情</h2>
+    <div class="detail-content-body markdown-body">
+      {{ .Content }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- 底部返回 -->
+  <div class="detail-back-bottom">
+    <a href="/products/" class="btn-more" id="backBtnBottom">返回商品列表</a>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p>© 2024 噢啦姐妹的小店 · 手工配件，用心制作</p>
+</footer>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+  // Pass detail_images count to JS
+  window.carouselCount = {{ len .Params.detail_images }};
+</script>
+<script src="/js/product-detail.js"></script>
+{{ end }}

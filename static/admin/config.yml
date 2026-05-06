@@ -1,0 +1,153 @@
+# =====================================================================
+# Decap CMS 配置文件
+# 部署到 Netlify：使用 git-gateway backend（推荐）
+# 部署到其他平台：改用 github backend（见注释）
+# =====================================================================
+
+backend:
+  # --- 选项A：Netlify（推荐，需开启 Netlify Identity + Git Gateway）
+  name: git-gateway
+  branch: main
+
+  # --- 选项B：直接 GitHub（取消下方注释，注释掉选项A）
+  # name: github
+  # repo: your-github-username/ol-sisters-shop
+  # branch: main
+
+# 媒体文件存储位置（存入 Git 仓库）
+media_folder: "static/images"
+public_folder: "/images"
+
+# 如果使用 Cloudinary 存储图片，取消下方注释：
+# media_library:
+#   name: cloudinary
+#   config:
+#     cloud_name: your-cloud-name
+#     api_key: your-api-key
+
+# =====================================================================
+# 内容集合定义
+# =====================================================================
+
+collections:
+  # ---------------------------
+  # 商品集合
+  # ---------------------------
+  - name: "products"
+    label: "商品管理"
+    label_singular: "商品"
+    folder: "content/products"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    identifier_field: title
+    summary: "{{title}} - {{category}} - ¥{{price}}"
+    sortable_fields: ["title", "category", "price", "weight"]
+    view_filters:
+      - label: "萌宠系列"
+        field: category
+        pattern: "萌宠系列"
+      - label: "古典木艺系列"
+        field: category
+        pattern: "古典木艺系列"
+    fields:
+      - label: "商品名称"
+        name: "title"
+        widget: "string"
+        hint: "商品中文名称，如：家有旺财"
+
+      - label: "商品分类"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "萌宠系列", value: "萌宠系列" }
+          - { label: "古典木艺系列", value: "古典木艺系列" }
+
+      - label: "价格（元）"
+        name: "price"
+        widget: "number"
+        value_type: "float"
+        min: 0
+        step: 0.01
+
+      - label: "商品主图"
+        name: "image"
+        widget: "image"
+        required: false
+        hint: "首页和列表页显示的缩略图（建议 1:1 比例）"
+
+      - label: "商品简介（悬停描述）"
+        name: "description"
+        widget: "string"
+        hint: "鼠标悬停时显示的描述，也用作详情页短描述"
+
+      - label: "商品亮点"
+        name: "highlights"
+        widget: "list"
+        required: false
+        label_singular: "亮点"
+        hint: "详情页展示的卖点，每条以 emoji 开头，如：✨ 手工缝制"
+        field:
+          label: "亮点文案"
+          name: "item"
+          widget: "string"
+
+      - label: "详情图片组（轮播图）"
+        name: "detail_images"
+        widget: "list"
+        required: false
+        label_singular: "详情图"
+        hint: "详情页轮播图，第一张为主图"
+        field:
+          label: "图片"
+          name: "image"
+          widget: "image"
+
+      - label: "图文详情内容"
+        name: "detail_content"
+        widget: "list"
+        required: false
+        label_singular: "内容块"
+        hint: "图文混合详情，可自由组合文字、标题、图片"
+        types:
+          - label: "文本段落"
+            name: "text"
+            widget: "object"
+            fields:
+              - { label: "类型", name: "type", widget: "hidden", default: "text" }
+              - { label: "内容", name: "content", widget: "text" }
+
+          - label: "小标题"
+            name: "heading"
+            widget: "object"
+            fields:
+              - { label: "类型", name: "type", widget: "hidden", default: "heading" }
+              - { label: "标题文字", name: "content", widget: "string" }
+
+          - label: "图片"
+            name: "image"
+            widget: "object"
+            fields:
+              - { label: "类型", name: "type", widget: "hidden", default: "image" }
+              - { label: "图片", name: "url", widget: "image" }
+
+      - label: "排序权重"
+        name: "weight"
+        widget: "number"
+        required: false
+        default: 99
+        hint: "数字越小越靠前显示"
+
+  # ---------------------------
+  # 网站设置（单例）
+  # ---------------------------
+  - name: "settings"
+    label: "网站设置"
+    files:
+      - label: "基本设置"
+        name: "config"
+        file: "hugo.toml"
+        editor:
+          preview: false
+        fields:
+          - { label: "网站标题", name: "title", widget: "string" }

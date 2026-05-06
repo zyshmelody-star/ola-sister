@@ -1,0 +1,18 @@
+baseURL = "https://your-site.netlify.app/"
+locale = "zh-CN"
+title = "噢啦姐妹的小店（OL Sister's Shop）"
+defaultContentLanguage = "zh"
+paginate = 20
+disableKinds = ["taxonomy", "term"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  siteName = "噢啦姐妹的小店"
+  siteNameEn = "OL Sister's Shop"
+  description = "手工挂包配件，小批量制作，品质精良，定价公道"
+  xiaohongshu = "@噢啦姐妹的小店"
+  xianyu = "噢啦姐妹的小店"

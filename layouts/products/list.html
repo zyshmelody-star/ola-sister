@@ -1,0 +1,74 @@
+{{ define "main" }}
+{{ partial "header.html" . }}
+
+<div class="container product-list-page">
+
+  <!-- 面包屑 -->
+  <nav class="breadcrumb">
+    <a href="/">首页</a>
+    <span class="breadcrumb-sep">›</span>
+    <span id="breadcrumb-current">全部商品</span>
+  </nav>
+
+  <!-- 筛选区 -->
+  <div class="filter-bar">
+    <div class="category-filters">
+      <button class="filter-btn active" data-category="all">全部</button>
+      <button class="filter-btn" data-category="萌宠系列">萌宠系列</button>
+      <button class="filter-btn" data-category="古典木艺系列">古典木艺系列</button>
+    </div>
+    <div class="search-wrap">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="搜索商品名称..."
+        autocomplete="off"
+      />
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 商品网格 -->
+  <div class="products-grid product-list-grid" id="productGrid">
+    {{ range .Pages }}
+    <article
+      class="product-card"
+      data-category="{{ .Params.category }}"
+      data-name="{{ .Title }}"
+    >
+      <a href="{{ .Permalink }}" class="product-card-link">
+        <div class="product-img-wrap">
+          <img
+            src="{{ .Params.image | default "/images/placeholder.svg" }}"
+            alt="{{ .Title }}"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">{{ .Title }}</h3>
+          <p class="product-price">¥{{ printf "%.2f" .Params.price }}</p>
+        </div>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+
+  <!-- 空状态 -->
+  <div class="empty-state hidden" id="emptyState">
+    <p>暂无商品</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p>© 2024 噢啦姐妹的小店 · 手工配件，用心制作</p>
+</footer>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script src="/js/product-list.js"></script>
+{{ end }}

@@ -1,0 +1,31 @@
+<section class="purchase-channels">
+  <h3 class="channels-title">扫码前往店铺选购</h3>
+  <div class="channels-grid">
+    <div class="channel-card">
+      <div class="channel-logo">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+        </svg>
+        <span>小红书</span>
+      </div>
+      <div class="channel-qr">
+        <img src="/images/qr-xiaohongshu.png" alt="小红书二维码" onerror="this.src='/images/qr-placeholder.svg'" />
+      </div>
+      <p class="channel-account">{{ .Site.Params.xiaohongshu }}</p>
+      <p class="channel-hint">扫码前往小红书店铺</p>
+    </div>
+    <div class="channel-card">
+      <div class="channel-logo">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+        </svg>
+        <span>闲鱼</span>
+      </div>
+      <div class="channel-qr">
+        <img src="/images/qr-xianyu.png" alt="闲鱼二维码" onerror="this.src='/images/qr-placeholder.svg'" />
+      </div>
+      <p class="channel-account">{{ .Site.Params.xianyu }}</p>
+      <p class="channel-hint">扫码前往闲鱼店铺</p>
+    </div>
+  </div>
+</section>

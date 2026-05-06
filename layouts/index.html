@@ -1,0 +1,117 @@
+{{ define "main" }}
+{{ partial "header.html" . }}
+
+<!-- 侧边浮动导航 -->
+<nav class="float-nav" id="floatNav">
+  <div class="float-nav-label">分类</div>
+  <a href="#category-pets" class="float-nav-item active" data-target="category-pets">萌宠系列</a>
+  <a href="#category-wood" class="float-nav-item" data-target="category-wood">古典木艺</a>
+</nav>
+
+<!-- Tab 内容：商品 -->
+<div class="tab-content" id="tab-products">
+
+  <!-- 萌宠系列 -->
+  <section class="category-section" id="category-pets">
+    <div class="container">
+      <h2 class="category-title">
+        <span class="category-icon">🐾</span>
+        萌宠系列
+      </h2>
+      <div class="products-grid">
+        {{ range where (where .Site.RegularPages "Type" "products") "Params.category" "萌宠系列" | first 2 }}
+        <article class="product-card">
+          <a href="{{ .Permalink }}" class="product-card-link">
+            <div class="product-img-wrap">
+              <img
+                src="{{ .Params.image | default "/images/placeholder.svg" }}"
+                alt="{{ .Title }}"
+                loading="lazy"
+              />
+              <div class="product-hover-desc">
+                <p>{{ .Params.description }}</p>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">{{ .Title }}</h3>
+              <p class="product-price">¥{{ printf "%.2f" .Params.price }}</p>
+            </div>
+          </a>
+        </article>
+        {{ end }}
+      </div>
+      <div class="category-more">
+        <a href="/products/?category=萌宠系列" class="btn-more">点击查看更多</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 古典木艺系列 -->
+  <section class="category-section" id="category-wood">
+    <div class="container">
+      <h2 class="category-title">
+        <span class="category-icon">🌿</span>
+        古典木艺系列
+      </h2>
+      <div class="products-grid">
+        {{ range where (where .Site.RegularPages "Type" "products") "Params.category" "古典木艺系列" | first 2 }}
+        <article class="product-card">
+          <a href="{{ .Permalink }}" class="product-card-link">
+            <div class="product-img-wrap">
+              <img
+                src="{{ .Params.image | default "/images/placeholder.svg" }}"
+                alt="{{ .Title }}"
+                loading="lazy"
+              />
+              <div class="product-hover-desc">
+                <p>{{ .Params.description }}</p>
+              </div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">{{ .Title }}</h3>
+              <p class="product-price">¥{{ printf "%.2f" .Params.price }}</p>
+            </div>
+          </a>
+        </article>
+        {{ end }}
+      </div>
+      <div class="category-more">
+        <a href="/products/?category=古典木艺系列" class="btn-more">点击查看更多</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /tab-products -->
+
+<!-- Tab 内容：关于我们 -->
+<div class="tab-content hidden" id="tab-about">
+  <div class="container about-container">
+
+    <section class="brand-story">
+      <h2 class="section-title">品牌故事</h2>
+      <div class="brand-story-body">
+        <p>
+          噢啦姐妹（OL Sister）成立于2024年，由两位拥有多年跨境供应链经验的年轻女性创立。
+          我们的二十多岁在大型贸易公司度过——学会了利润藏在何处、哪些工厂真正靠谱、海外买家到底希望找到什么。
+        </p>
+        <p>
+          如今，我们做自己的产品线。手工组装的挂包配件，小批量制作，品质精良，定价公道。
+          我们年轻，热爱DIY，并且懂得如何无惊无险地把产品运过国境。
+        </p>
+      </div>
+    </section>
+
+    {{ partial "purchase-channels.html" . }}
+
+  </div>
+</div><!-- /tab-about -->
+
+<footer class="site-footer">
+  <p>© 2024 噢啦姐妹的小店 · 手工配件，用心制作</p>
+</footer>
+
+{{ end }}
+
+{{ define "scripts" }}
+<script src="/js/home.js"></script>
+{{ end }}

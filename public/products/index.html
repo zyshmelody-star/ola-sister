@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>全部商品 - 噢啦姐妹的小店</title>
+  <meta name="description" content="噢啦姐妹的小店 - 手工挂包配件" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+  
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-title">
+      <span class="title-cn">噢啦姐妹的小店</span>
+      <span class="title-en">OL Sister's Shop</span>
+    </a>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <div class="tab-nav-inner">
+    <a href="/" class="tab-btn tab-products" data-tab="products">商品</a>
+    <a href="/?tab=about" class="tab-btn tab-about" data-tab="about">关于我们</a>
+  </div>
+</nav>
+
+
+<div class="container product-list-page">
+
+  
+  <nav class="breadcrumb">
+    <a href="/">首页</a>
+    <span class="breadcrumb-sep">›</span>
+    <span id="breadcrumb-current">全部商品</span>
+  </nav>
+
+  
+  <div class="filter-bar">
+    <div class="category-filters">
+      <button class="filter-btn active" data-category="all">全部</button>
+      <button class="filter-btn" data-category="萌宠系列">萌宠系列</button>
+      <button class="filter-btn" data-category="古典木艺系列">古典木艺系列</button>
+    </div>
+    <div class="search-wrap">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="搜索商品名称..."
+        autocomplete="off"
+      />
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+    </div>
+  </div>
+
+  
+  <div class="products-grid product-list-grid" id="productGrid">
+    
+    <article
+      class="product-card"
+      data-category="萌宠系列"
+      data-name="家有旺财"
+    >
+      <a href="http://localhost:1313/products/wang-cai/" class="product-card-link">
+        <div class="product-img-wrap">
+          <img
+            src="/images/wang-cai-main.jpg"
+            alt="家有旺财"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">家有旺财</h3>
+          <p class="product-price">¥45.00</p>
+        </div>
+      </a>
+    </article>
+    
+    <article
+      class="product-card"
+      data-category="萌宠系列"
+      data-name="法式腊肠"
+    >
+      <a href="http://localhost:1313/products/french-sausage/" class="product-card-link">
+        <div class="product-img-wrap">
+          <img
+            src="/images/french-sausage-main.jpg"
+            alt="法式腊肠"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">法式腊肠</h3>
+          <p class="product-price">¥42.00</p>
+        </div>
+      </a>
+    </article>
+    
+    <article
+      class="product-card"
+      data-category="古典木艺系列"
+      data-name="旧巷南瓜灯"
+    >
+      <a href="http://localhost:1313/products/pumpkin-lamp/" class="product-card-link">
+        <div class="product-img-wrap">
+          <img
+            src="/images/pumpkin-lamp-main.jpg"
+            alt="旧巷南瓜灯"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">旧巷南瓜灯</h3>
+          <p class="product-price">¥58.00</p>
+        </div>
+      </a>
+    </article>
+    
+    <article
+      class="product-card"
+      data-category="古典木艺系列"
+      data-name="檀木鹿影"
+    >
+      <a href="http://localhost:1313/products/deer-shadow/" class="product-card-link">
+        <div class="product-img-wrap">
+          <img
+            src="/images/deer-shadow-main.jpg"
+            alt="檀木鹿影"
+            loading="lazy"
+          />
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">檀木鹿影</h3>
+          <p class="product-price">¥68.00</p>
+        </div>
+      </a>
+    </article>
+    
+  </div>
+
+  
+  <div class="empty-state hidden" id="emptyState">
+    <p>暂无商品</p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <p>© 2024 噢啦姐妹的小店 · 手工配件，用心制作</p>
+</footer>
+
+
+  <script src="/js/main.js"></script>
+  
+<script src="/js/product-list.js"></script>
+
+</body>
+</html>

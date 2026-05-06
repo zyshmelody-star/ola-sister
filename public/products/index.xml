@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>全部商品 on 噢啦姐妹的小店（OL Sister&#39;s Shop）</title>
+    <link>http://localhost:1313/products/</link>
+    <description>Recent content in 全部商品 on 噢啦姐妹的小店（OL Sister&#39;s Shop）</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <atom:link href="http://localhost:1313/products/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>家有旺财</title>
+      <link>http://localhost:1313/products/wang-cai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/wang-cai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>法式腊肠</title>
+      <link>http://localhost:1313/products/french-sausage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/french-sausage/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>旧巷南瓜灯</title>
+      <link>http://localhost:1313/products/pumpkin-lamp/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/pumpkin-lamp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>檀木鹿影</title>
+      <link>http://localhost:1313/products/deer-shadow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/products/deer-shadow/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
