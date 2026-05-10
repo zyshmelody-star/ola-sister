@@ -1,7 +1,7 @@
 ---
 title: "旧巷南瓜灯"
 category: "古典木艺系列"
-price: 58.00
+price: 79.90
 image: "/images/pumpkin-lamp-main.jpg"
 description: "木质南瓜 + 小小猫坐像。旧巷子里，有一盏灯等你回家，路边还有一只小猫。"
 highlights:

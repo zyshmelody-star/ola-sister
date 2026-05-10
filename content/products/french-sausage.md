@@ -1,7 +1,7 @@
 ---
 title: "法式腊肠"
 category: "萌宠系列"
-price: 42.00
+price: 69.90
 image: "/images/french-sausage-main.jpg"
 description: "腊肠狗造型 + 迷你法棍面包，编织麻绳和弹簧扣。适合喜欢法式幽默与长身体小狗的可爱组合。"
 highlights:

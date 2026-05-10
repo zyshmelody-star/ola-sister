@@ -1,7 +1,7 @@
 ---
 title: "檀木鹿影"
 category: "古典木艺系列"
-price: 68.00
+price: 79.90
 image: "/images/deer-shadow-main.jpg"
 description: "檀木珠串雕出小鹿剪影，搭配天然棉绳。为喜欢森林与自然的安静灵魂而设计。"
 highlights:

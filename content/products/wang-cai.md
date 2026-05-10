@@ -1,7 +1,7 @@
 ---
 title: "家有旺财"
 category: "萌宠系列"
-price: 45.00
+price: 69.90
 image: "/images/wang-cai-main.jpg"
 description: '手工缝制小狗+幸运红绳+铜铃。"旺财"寓意带来财运——随身携带一只小狗，也随身携带好运。'
 highlights:
